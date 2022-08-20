@@ -1,11 +1,17 @@
 from googleapiclient.discovery import build
+import re
 
 api_key = "AIzaSyCSdtXwwN3yrfIl0gwle_yG8ifI-mlx25A"
 youtube = build('youtube','v3', developerKey=api_key)
 
+
+playlist_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
+x = re.split("list=", playlist_link)
+playlist_id = x[-1]
+
+
 videos =[]
 
-playlist_id = 'PL8uoeex94UhHFRew8gzfFJHIpRFWyY4YW'
 
 nextPageToken = None
 while True:
